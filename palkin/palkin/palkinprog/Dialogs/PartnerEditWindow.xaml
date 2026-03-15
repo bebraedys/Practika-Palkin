@@ -1,0 +1,172 @@
+<Window x:Class="palkinprog.Dialogs.PartnerEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:palkinprog.Dialogs"
+        mc:Ignorable="d"
+        Title="Редактирование партнера" 
+        Height="550" Width="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+
+        <Style x:Key="LabelStyle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,4"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="BorderBrush" Value="#D1D1D1"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#0078D4"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#0078D4"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#106EBE"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#F3F3F3"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#D1D1D1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#E0E0E0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="0" Background="#F3F3F3" Padding="16" CornerRadius="8" Margin="0,0,0,20">
+            <StackPanel>
+                <TextBlock x:Name="TitleText" Text="Добавление партнера" FontSize="20" FontWeight="Bold" Foreground="#333"/>
+                <TextBlock Text="Заполните информацию о партнере" FontSize="13" Foreground="#666" Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Форма -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Наименование -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="Наименование компании" FontWeight="SemiBold"/>
+                    <Run Foreground="Red" Text="*"/>
+                </TextBlock>
+                <TextBox x:Name="NameTextBox" Style="{StaticResource TextBoxStyle}" 
+                         ToolTip="Введите полное наименование компании"/>
+
+                <!-- Тип партнера -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="Тип партнера" FontWeight="SemiBold"/>
+                    <Run Foreground="Red" Text="*"/>
+                </TextBlock>
+                <ComboBox x:Name="PartnerTypeComboBox" Style="{StaticResource ComboBoxStyle}"
+                          DisplayMemberPath="Name" SelectedValuePath="Id"
+                          ToolTip="Выберите тип партнера из списка"/>
+
+                <!-- Рейтинг -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="Рейтинг" FontWeight="SemiBold"/>
+                </TextBlock>
+                <TextBox x:Name="RatingTextBox" Style="{StaticResource TextBoxStyle}" 
+                         Text="0"
+                         ToolTip="Введите неотрицательное целое число"/>
+                <TextBlock x:Name="RatingErrorText" Foreground="Red" FontSize="11" 
+                           Margin="0,-8,0,12" Visibility="Collapsed"/>
+
+                <!-- Юридический адрес -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="Юридический адрес"/>
+                </TextBlock>
+                <TextBox x:Name="LegalAddressTextBox" Style="{StaticResource TextBoxStyle}"
+                         ToolTip="Введите юридический адрес компании"/>
+
+                <!-- ИНН -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="ИНН"/>
+                </TextBlock>
+                <TextBox x:Name="InnTextBox" Style="{StaticResource TextBoxStyle}"
+                         ToolTip="Введите ИНН организации"/>
+
+                <!-- ФИО директора -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="ФИО директора"/>
+                </TextBlock>
+                <TextBox x:Name="DirectorNameTextBox" Style="{StaticResource TextBoxStyle}"
+                         ToolTip="Введите ФИО директора"/>
+
+                <!-- Телефон -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="Телефон"/>
+                </TextBlock>
+                <TextBox x:Name="PhoneTextBox" Style="{StaticResource TextBoxStyle}"
+                         ToolTip="Введите контактный телефон"/>
+
+                <!-- Email -->
+                <TextBlock Style="{StaticResource LabelStyle}">
+                    <Run Text="Email"/>
+                </TextBlock>
+                <TextBox x:Name="EmailTextBox" Style="{StaticResource TextBoxStyle}"
+                         ToolTip="Введите адрес электронной почты"/>
+                <TextBlock x:Name="EmailErrorText" Foreground="Red" FontSize="11" 
+                           Margin="0,-8,0,12" Visibility="Collapsed"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Кнопки -->
+        <Grid Grid.Row="2" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="#FFF4CE" Padding="12,8" CornerRadius="4" Visibility="{Binding ElementName=InfoText, Path=Tag, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}">
+                <TextBlock x:Name="InfoText" Text="* Обязательные поля" Foreground="#856404" FontSize="12"/>
+            </Border>
+
+            <Button Grid.Column="1" Content="Отмена" Style="{StaticResource SecondaryButtonStyle}" 
+                    Click="CancelClick"/>
+            <Button Grid.Column="2" Content="Сохранить" Style="{StaticResource PrimaryButtonStyle}" 
+                    Click="SaveClick"/>
+        </Grid>
+    </Grid>
+</Window>

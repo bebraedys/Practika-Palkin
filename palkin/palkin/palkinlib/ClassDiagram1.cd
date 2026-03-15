@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PalkinLib.Services.DiscountService">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAABAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\DiscountService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PalkinLib.Services.PartnerViewModel">
+    <Position X="10.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAACAACAAAACAAAARAAQAAACEFAAABIAAAAiA=</HashCode>
+      <FileName>Services\PartnerService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PalkinLib.Services.PartnerService" BaseTypeListCollapsed="true">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAABCBACAAAAAAACIACAgACAAAQAAAAAAQQAAAAAQA=</HashCode>
+      <FileName>Services\PartnerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PalkinLib.Services.SaleViewModel">
+    <Position X="5.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAEAAAAAAAAAACAAAAAAAABAAAAgAEIAAA=</HashCode>
+      <FileName>Services\PartnerService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PalkinLib.Models.Partner">
+    <Position X="14" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAQCAACAAAACAABARAAAAAAAEEAAABIAAAAiA=</HashCode>
+      <FileName>Models\Partner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PalkinLib.Models.PartnerType">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PartnerType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PalkinLib.Models.Sale">
+    <Position X="8.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAEAAAAAAAAAACAAAAAAAAAAAAAgAEIAAg=</HashCode>
+      <FileName>Models\Sale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PalkinLib.Data.PalkinDbContext">
+    <Position X="6" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQQAAAAAAAAAABAAAEAAAAAEIAAAAAAAAAAA=</HashCode>
+      <FileName>Data\PalkinDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
